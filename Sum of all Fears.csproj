@@ -68,7 +68,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Code.html" />
+    <Content Include="Images\favicon.ico" />
     <Content Include="Index.html" />
+    <Content Include="Scripts\Solve.js" />
     <Content Include="Solve.html" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -83,6 +85,9 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

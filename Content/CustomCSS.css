@@ -1,0 +1,22 @@
+﻿.bodybg {
+    background-image: linear-gradient(to right, #FAC605, #FA4D05);
+}
+
+.gridstyle {
+    background-image: linear-gradient(to right, #FA4D05, #FAC605);   
+}
+.navstyle {
+    background-color: #A86506;
+}
+.titlestyle {
+    font-size: 8rem;
+    background: -webkit-linear-gradient(#F54B05, #2A3BF5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.substyle {
+    background: -webkit-linear-gradient(#F54B05, #2A3BF5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
