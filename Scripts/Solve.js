@@ -26,7 +26,7 @@ document.getElementById('fearBtn').addEventListener('click', function () {
         if (userInputs.includes(target, i + 1) == true) {
             //Template literals are used to display variable values and icons in the output.
             document.getElementById('output').innerHTML = `<span class="h2 textstyle animate__animated animate__fadeInRightBig">${userInputs[i]} + ${target} = ${numK} <img src="Images/Checkmark.png" /></span>`;
-            i = 10;
+            break;
         }
     }
     //"if" function to set an output if the loops ended without returning true.
