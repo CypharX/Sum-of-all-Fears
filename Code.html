@@ -8,25 +8,28 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Coder Foundry MiniSite Template</title>
 
+    <link href="Content/prism.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="Images/favicon.ico">
+    <title>Sum of All Fears</title>
+    <link href="Content/CustomCSS.css" rel="stylesheet" />
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
 </head>
 
-<body>
+<body class="bodybg">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <nav class="navbar navbar-expand-lg navbar-dark navstyle static-top">
         <div class="container">
-            <a class="navbar-brand" href="/Index.html">Challenge Name Here</a>
+            <a class="navbar-brand" href="/Index.html"><img src="Images/favicon.ico" /></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
+                <ul class="navbar-nav ml-auto h5">
+                    <li class="nav-item">
                         <a class="nav-link" href="/Index.html">
                             Home
                         </a>
@@ -35,16 +38,13 @@
                         <a class="nav-link" href="/Solve.html">Solve</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/Code.html">Code</a>
+                        <a class="nav-link active" href="/Code.html">Code</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Git</a>
+                        <a class="nav-link" href="https://github.com/CypharX/Sum-of-all-Fears" target="_blank">Git</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Portfolio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Blog Post/YouTube Explanation</a>
+                        <a class="nav-link" href="https://aduval.netlify.app" target="_blank">Portfolio</a>
                     </li>
                 </ul>
             </div>
@@ -52,15 +52,130 @@
     </nav>
 
     <!-- Page Content -->
-    <div class="container">
+    <div class="container gridstyle">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h1 class="mt-5">This Page shows your JS code</h1>
-                <p class="lead">You need to use a Syntax Highlighter - Prism.js is default</p>
-                <ul class="list-unstyled">
-                    <li>Code with highlighter</li>
-                    <li>Will display on this page</li>
-                </ul>
+                <h1 class="mt-5 titlestyle">The Sum of All Fears</h1>
+                <p class="h1 substyle">A Javascript Coding Challenge</p><hr />
+                <ul class="list-unstyled h4 textstyle">
+                     <li>A look into the "magic" of this application.</li>
+                    <li>This is the Javascript code that makes it run.</li>
+                </ul><br />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <pre>
+<code class="language-js line-numbers">//Wires event listener to call anonymous function when "fearBtn" is clicked.
+document.getElementById('fearBtn').addEventListener('click', function () {
+    //Creates a variable for each user input
+    let num1 = parseInt(document.getElementById('input1').value);
+    let num2 = parseInt(document.getElementById('input2').value);
+    let num3 = parseInt(document.getElementById('input3').value);
+    let num4 = parseInt(document.getElementById('input4').value);
+    let num5 = parseInt(document.getElementById('input5').value);
+    let numK = parseInt(document.getElementById('kValue').value);
+    //Creates a new array "userInputs" to hold all user inputs.
+    let userInputs = new Array();
+    userInputs.push(num1);
+    userInputs.push(num2);
+    userInputs.push(num3);
+    userInputs.push(num4);
+    userInputs.push(num5);
+    //Creating "i" variable outside the loop so it can be used it later.
+    let i = 0;
+    //Starting loop to run 4 times, once for each position in the array
+    //except for that last position.
+    for (i = 0; i < 4; i++) {
+        //Setting a new "target" variable to look for in the "includes" function.
+        let target = numK - userInputs[i];
+        //"if" function calling a "includes" function on the "userInputs" array
+        //that if returns true will output the success message and end the loop.
+        if (userInputs.includes(target, i + 1) == true) {
+            //Template literals are used to display variable values and icons in the output.
+            document.getElementById('output').innerHTML = `<span class="h2 textstyle">${userInputs[i]} + ${target} = ${numK} <img src="Images/Checkmark.png" /></span>`;
+            i = 10;
+        }
+    }
+    //"if" function to set an output if the loops ended without returning true.
+    if (i == 4) {
+        //Template literals are used to display variable values and icons in the output.
+        document.getElementById('output').innerHTML = `<span class="h2 textstyle">No 2 numbers add up to ${numK} <img src="Images/RedX.png" /></span>`
+    }
+})
+//Function to listen for keypresses in "input1" and ignore all non-number characters
+document.getElementById('input1').addEventListener('keypress', function (evt) {
+    //Creates the "char" variable and sets it equal to the character code of the
+    //pressed input
+    let char = evt.which;
+    //Uses the value of "char" to determine the given character using its Ascii
+    // code and returning true if it's a character we want and false if it's any
+    //other character.
+    if (char >= 48 && char <= 57) {
+        return true;
+    }
+    else {
+        evt.preventDefault();
+        return false;
+    }
+});
+//Same as above function but for "input2"
+document.getElementById('input2').addEventListener('keypress', function (evt) {
+    let char = evt.which;
+    if (char >= 48 && char <= 57) {
+        return true;
+    }
+    else {
+        evt.preventDefault();
+        return false;
+    }
+});
+//Same as above functions but for "input3"
+document.getElementById('input3').addEventListener('keypress', function (evt) {
+    let char = evt.which;
+    if (char >= 48 && char <= 57) {
+        return true;
+    }
+    else {
+        evt.preventDefault();
+        return false;
+    }
+});
+//Same as above functions but for "input4"
+document.getElementById('input4').addEventListener('keypress', function (evt) {
+    let char = evt.which;
+    if (char >= 48 && char <= 57) {
+        return true;
+    }
+    else {
+        evt.preventDefault();
+        return false;
+    }
+});
+//Same as above functions but for "input5"
+document.getElementById('input5').addEventListener('keypress', function (evt) {
+    let char = evt.which;
+    if (char >= 48 && char <= 57) {
+        return true;
+    }
+    else {
+        evt.preventDefault();
+        return false;
+    }
+});
+//Same as above functions but for "kValue"
+document.getElementById('kValue').addEventListener('keypress', function (evt) {
+    let char = evt.which;
+    if (char >= 48 && char <= 57) {
+        return true;
+    }
+    else {
+        evt.preventDefault();
+        return false;
+    }
+});
+                    </code>
+</pre>
             </div>
         </div>
     </div>
@@ -69,7 +184,7 @@
     <script src="//code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="//cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="//stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-
+    <script src="Scripts/prism.js"></script>
 </body>
 
 </html>

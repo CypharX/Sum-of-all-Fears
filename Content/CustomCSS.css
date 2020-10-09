@@ -1,22 +1,40 @@
 ﻿.bodybg {
-    background-image: linear-gradient(to right, #FAC605, #FA4D05);
+    background-image: linear-gradient(to right, #FB2C01, #030202);
 }
 
 .gridstyle {
-    background-image: linear-gradient(to right, #FA4D05, #FAC605);   
+    background-image: linear-gradient(to right,#4F482F ,#FB2C01);
 }
 .navstyle {
-    background-color: #A86506;
+    background-color: #3F0D12;
 }
 .titlestyle {
-    font-size: 8rem;
-    background: -webkit-linear-gradient(#F54B05, #2A3BF5);
+    font-size: 7rem;
+    background: -webkit-linear-gradient(#20FA2F, #390099);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
 }
 .substyle {
-    background: -webkit-linear-gradient(#F54B05, #2A3BF5);
+    font-size: 4rem;
+    background: -webkit-linear-gradient(#390099, #20FA2F);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
 }
-
+.textstyle {
+    color: gainsboro;
+}
+.numInput {
+    background-color: #390099;
+    color: white;
+}
+.kInput {
+    background-color: #0A100D;
+    color: white;
+}
+::placeholder {
+    color:white;
+}
